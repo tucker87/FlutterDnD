@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Character extends StatefulWidget {
@@ -9,20 +11,26 @@ class Character extends StatefulWidget {
 
 class _CharacterState extends State<Character> {
   int _result = 0;
+  List<int> _rolls = [];
 
-  int _getRandomNumber() {
-    return 4; //chosen by a fair dice roll.
-              //guaranteed to be random.
+  int _rollDie(int sides) {
+    return Random().nextInt(sides) + 1;
+  }
+
+  int _rollStat() {
+    _rolls = [_rollDie(6), _rollDie(6), _rollDie(6), _rollDie(6)];
+    _rolls.sort();
+    return _rolls[1] + _rolls[2] + _rolls[3];
   }
 
   void _roll() {
     setState(() {
-      _result = _getRandomNumber();
+      _result = _rollStat();
     });
   }
 
-  int _calculate_bonus(int score) {
-    return (score - 10 / 2).floor();
+  int _calculateBonus(int score) {
+    return ((score - 10) / 2).floor();
   }
 
   @override
@@ -40,7 +48,15 @@ class _CharacterState extends State<Character> {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              _result.toString(),
+              '$_result $_rolls',
+              style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            const Text(
+              'Modifier:',
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              _calculateBonus(_result).toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
