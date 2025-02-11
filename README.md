@@ -15,6 +15,7 @@ I will be testing this app in Web/Android
 
 ## Resources
 [Setup Guide](https://docs.flutter.dev/get-started/install/windows)
+
 [Try Dart](https://dart.dev/#try-dart)
 
 ## Today I Learned
@@ -28,7 +29,7 @@ Recreating the project fixed the issue.
 ## V1
 
 ### Folders and Files
-Studyed the examples folder of the Flutter SDK for file layout standards but all it's code was in main.dart
+Studied the examples folder of the Flutter SDK for file layout standards but all it's code was in main.dart
 
 [A Simple way to organize your code in Flutter](https://medium.com/@kanellopoulos.leo/a-simple-way-to-organize-your-code-in-flutter-e175e7004fb5)
 
@@ -45,7 +46,9 @@ I've now randomized the rolls using Math Random().nextInt and displayed the calc
 
 ### V2
 Added Ability class to our Character
+
 Generating 6 of these with nothing stored on them. This will need to change when get to save/loading
+
 Score is now calculated based on rolls. I don't like like the direct index references but I'm moving on for now.
 
 ![Abilities](docs/images/abilities.png)
