@@ -2,6 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+class Ability {
+  Ability({required this.name});
+
+  final String name;
+  int score() => rolls[1] + rolls[2] + rolls[3];
+  List<int> rolls = [0,0,0,0];
+}
+
 class Character extends StatefulWidget {
   const Character({super.key});
 
@@ -10,22 +18,30 @@ class Character extends StatefulWidget {
 }
 
 class _CharacterState extends State<Character> {
-  int _result = 0;
-  List<int> _rolls = [];
+  final List<Ability> _abilityScores = [
+    Ability(name: 'Strength'),
+    Ability(name: 'Dexterity'),
+    Ability(name: 'Constitution'),
+    Ability(name: 'Intelligence'),
+    Ability(name: 'Wisdom'),
+    Ability(name: 'Charisma'),
+  ];
 
   int _rollDie(int sides) {
     return Random().nextInt(sides) + 1;
   }
 
-  int _rollStat() {
-    _rolls = [_rollDie(6), _rollDie(6), _rollDie(6), _rollDie(6)];
-    _rolls.sort();
-    return _rolls[1] + _rolls[2] + _rolls[3];
+  List<int> _rollStat() {
+    var rolls = [_rollDie(6), _rollDie(6), _rollDie(6), _rollDie(6)];
+    rolls.sort();
+    return rolls;
   }
 
   void _roll() {
     setState(() {
-      _result = _rollStat();
+      for(var ability in _abilityScores) {
+        ability.rolls = _rollStat();
+      }
     });
   }
 
@@ -43,22 +59,9 @@ class _CharacterState extends State<Character> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You rolled a:',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              '$_result $_rolls',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            const Text(
-              'Modifier:',
-              style: TextStyle(fontSize: 20),
-            ),
-            Text(
-              _calculateBonus(_result).toString(),
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            for(var i in _abilityScores)
+              Text('${i.name}: ${i.score()} ${i.rolls} ${_calculateBonus(i.score())}',
+              style: Theme.of(context).textTheme.headlineMedium),
           ],
         ),
       ),

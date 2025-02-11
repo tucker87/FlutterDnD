@@ -4,6 +4,7 @@ My first Flutter project!
 
 ## Roadmap
 1. Can roll 4d6
+1. Can roll stats
 1. Can assign rolls to stats
 1. Can choose to use standard array
 1. Can save character(s) locally
@@ -42,3 +43,9 @@ I've now randomized the rolls using Math Random().nextInt and displayed the calc
 
 ![Roll Sample](docs/images/rollSample.png)
 
+### V2
+Added Ability class to our Character
+Generating 6 of these with nothing stored on them. This will need to change when get to save/loading
+Score is now calculated based on rolls. I don't like like the direct index references but I'm moving on for now.
+
+![Abilities](docs/images/abilities.png)
