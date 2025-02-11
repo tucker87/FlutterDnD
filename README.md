@@ -8,6 +8,7 @@ My first Flutter project!
 1. Can choose to use standard array
 1. Can save character(s) locally
 1. Can save characters in remote DB
+1. Add Unit Tests
 
 I will be testing this app in Web/Android
 
@@ -21,3 +22,17 @@ I will be testing this app in Web/Android
 Ran into a Gradle issue that I failed to track down. 
 
 Recreating the project fixed the issue.
+
+## V1
+
+### Folders and Files
+Studyed the examples folder of the Flutter SDK for file layout standards but all it's code was in main.dart
+
+[A Simple way to organize your code in Flutter](https://medium.com/@kanellopoulos.leo/a-simple-way-to-organize-your-code-in-flutter-e175e7004fb5)
+
+I could not find an official recommendation so I'll be following this struture.
+
+### Character Screen
+This is just going to be a dice roller at first but will become where we view the character stats.
+
+Got a reactive value to update. Learned that if we don't call setState as we change a value then the UI doesn't update. Seems quite different coming from ref/computed values in Vue.
