@@ -2,6 +2,8 @@
 
 My first Flutter project!
 
+Below is a journal of my progress on this application.
+
 ## Roadmap
 1. Can roll 4d6
 1. Can roll stats
