@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screens/character.dart';
+import 'screens/character/character_page.dart';
 
 void main() {
   runApp(const MainApp());

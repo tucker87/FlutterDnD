@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dnd/screens/character/ability_widget.dart';
 
 class Ability {
   Ability({required this.name});
@@ -45,10 +46,6 @@ class _CharacterState extends State<Character> {
     });
   }
 
-  int _calculateBonus(int score) {
-    return ((score - 10) / 2).floor();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,9 +56,8 @@ class _CharacterState extends State<Character> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            for(var i in _abilityScores)
-              Text('${i.name}: ${i.score()} ${i.rolls} ${_calculateBonus(i.score())}',
-              style: Theme.of(context).textTheme.headlineMedium),
+            for(var score in _abilityScores)
+              AbilityWidget(ability: score),
           ],
         ),
       ),

@@ -54,3 +54,7 @@ Generating 6 of these with nothing stored on them. This will need to change when
 Score is now calculated based on rolls. I don't like like the direct index references but I'm moving on for now.
 
 ![Abilities](docs/images/abilities.png)
+
+### Cleanup
+Naming standards? widget files camelCase? What libraries might I use to widgets/composables?
+[Flutter’s recommended naming conventions for files and folders](https://medium.com/@parthbhanderi01/flutters-recommended-naming-conventions-for-files-and-folders-278fe8e09929)
