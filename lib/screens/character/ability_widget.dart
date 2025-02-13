@@ -16,6 +16,6 @@ class _AbilityWidgetState extends State<AbilityWidget> {
 
   @override
    Widget build(BuildContext context) {
-    return Text('${widget.ability.name}: ${widget.ability.score()} ${widget.ability.rolls} ${_calculateBonus(widget.ability.score())}');
-  }
+    return Text('${widget.ability.name}: ${widget.ability.roll?.score()} ${widget.ability.roll?.rolls} ${_calculateBonus(widget.ability.roll?.score() ?? 0)}');
+  } 
 }
